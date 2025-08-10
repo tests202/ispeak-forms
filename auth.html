@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iSpeak - התחברות</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(180deg, #F8F8F8 0%, #ECECEC 100%);
+            font-family: 'Assistant', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .auth-container {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.92) 100%);
+            backdrop-filter: blur(16px);
+            border: 2px solid #232F3E;
+            border-radius: 28px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.12), 0 12px 40px rgba(35, 47, 62, 0.08), 0 4px 16px rgba(0, 0, 0, 0.06);
+            padding: 40px 48px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 153, 0, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(35, 47, 62, 0.02) 0%, transparent 50%);
+            border-radius: 28px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-size: 2.6rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            letter-spacing: 0.15em;
+            line-height: 1;
+            animation: slideInDown 0.4s ease-out 0.1s both;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo .iS {
+            background: linear-gradient(135deg, #232F3E 0%, #FF9900 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo .peak {
+            background: linear-gradient(135deg, #232F3E 0%, #FF9900 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .tagline {
+            color: rgba(102, 102, 102, 0.65);
+            font-size: 0.85rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+            animation: fadeIn 0.4s ease-out 0.2s both;
+        }
+
+        .logo-underline {
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, #232F3E 0%, #FF9900 100%);
+            margin: 0 auto 20px;
+            animation: expandWidth 0.5s ease-out 0.3s both;
+            border-radius: 1px;
+        }
+
+        @keyframes expandWidth {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: 120px;
+                opacity: 1;
+            }
+        }
+
+        .lock-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF9900 0%, #e88b00 100%);
+            border: 2px solid #232F3E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 24px rgba(255, 153, 0, 0.3), 0 4px 12px rgba(35, 47, 62, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            animation: zoomIn 0.5s ease-out 0.4s both;
+            position: relative;
+        }
+
+        .lock-icon::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #FF9900, #232F3E);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.6);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .lock-icon i {
+            font-size: 1.3rem;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-text {
+            margin-bottom: 32px;
+            animation: fadeIn 0.4s ease-out 0.5s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .welcome-text h1 {
+            color: #232F3E;
+            font-size: 1.85rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+
+        .welcome-text p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+            animation: slideInLeft 0.4s ease-out 0.6s both;
+            position: relative;
+        }
+
+        .form-group:nth-child(2) {
+            animation-delay: 0.7s;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #232F3E;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: right;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px 18px;
+            border: 1px solid #E7E7E7;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #FF9900;
+            box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .form-group input::placeholder {
+            color: #7A8699;
+        }
+
+        .password-field {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #7A8699;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .password-toggle:hover {
+            color: #FF9900;
+        }
+
+        .password-toggle:focus {
+            outline: none;
+        }
+
+        .password-field input {
+            padding-right: 18px;
+            padding-left: 48px;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            animation: fadeIn 0.4s ease-out 0.8s both;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            accent-color: #FF9900;
+            cursor: pointer;
+        }
+
+        .remember-me label {
+            color: #333;
+            font-size: 0.92rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            color: #232F3E;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.92rem;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            color: #FF9900;
+            text-decoration: underline;
+        }
+
+        .forgot-password:focus {
+            outline: 2px solid #FF9900;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .forgot-password-small {
+            color: #232F3E;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password-small:hover {
+            color: #FF9900;
+            text-decoration: underline;
+        }
+
+        .forgot-password-small:focus {
+            outline: 2px solid #FF9900;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .global-error {
+            background: rgba(209, 67, 67, 0.1);
+            border: 1px solid #D14343;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            color: #D14343;
+            font-size: 0.9rem;
+            text-align: right;
+            display: none;
+        }
+
+        .sign-in-btn {
+            width: 100%;
+            height: 48px;
+            background: linear-gradient(135deg, #FF9900 0%, #e88b00 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            animation: slideInUp 0.4s ease-out 0.9s both;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(255, 153, 0, 0.3);
+        }
+
+        .sign-in-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 153, 0, 0.4);
+            background: linear-gradient(135deg, #e88b00 0%, #d17a00 100%);
+        }
+
+        .sign-in-btn:active:not(:disabled) {
+            transform: scale(0.98);
+            box-shadow: 0 4px 16px rgba(255, 153, 0, 0.3);
+        }
+
+        .sign-in-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .sign-in-btn.loading {
+            pointer-events: none;
+        }
+
+        .sign-in-btn.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .trust-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 8px;
+            padding: 6px;
+            animation: fadeIn 0.4s ease-out 1s both;
+        }
+
+        .trust-indicator i {
+            color: #28a745;
+            font-size: 0.7rem;
+        }
+
+        .trust-indicator span {
+            color: #666;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .footer-links {
+            margin-top: 16px;
+            animation: fadeIn 0.4s ease-out 1.1s both;
+        }
+
+        .footer-links a {
+            color: rgba(102, 102, 102, 0.7);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #FF9900;
+        }
+
+        .footer-links a:focus {
+            outline: 2px solid #FF9900;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .back-link {
+            margin-top: 12px;
+            animation: fadeIn 0.4s ease-out 1.2s both;
+        }
+
+        .back-link a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            color: #FF9900;
+        }
+
+        .back-link a:focus {
+            outline: 2px solid #FF9900;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .error-message {
+            color: #D14343;
+            font-size: 0.875rem;
+            margin-top: 6px;
+            text-align: right;
+            animation: fadeIn 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .error-message i {
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 480px) {
+            .auth-container {
+                padding: 32px 24px;
+                margin: 10px;
+                max-width: 420px;
+                border-radius: 20px;
+            }
+
+            .logo {
+                font-size: 2.3rem;
+                letter-spacing: 0.15em;
+            }
+
+            .tagline {
+                font-size: 0.8rem;
+            }
+
+            .lock-icon {
+                width: 48px;
+                height: 48px;
+            }
+
+            .lock-icon i {
+                font-size: 1.1rem;
+            }
+
+            .welcome-text h1 {
+                font-size: 1.7rem;
+            }
+
+            .welcome-text p {
+                font-size: 0.9rem;
+            }
+
+            .form-group input {
+                padding: 14px 16px;
+            }
+
+            .password-field input {
+                padding-left: 44px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="logo">
+            <span class="iS">iS</span><span class="peak">peak</span>
+        </div>
+        
+        <div class="tagline">למדו אנגלית כמו שפת אם</div>
+        
+        <div class="logo-underline"></div>
+        
+        <div class="lock-icon">
+            <i class="fas fa-lock"></i>
+        </div>
+        
+        <div class="welcome-text">
+            <h1>ברוכים הבאים!</h1>
+            <p>אנא התחברו כדי לגשת לפאנל הניהול שלכם</p>
+        </div>
+        
+        <div class="global-error" id="global-error">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span id="global-error-text"></span>
+        </div>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">שם משתמש</label>
+                <input type="text" id="username" name="username" placeholder="הזינו את שם המשתמש שלכם" required autocomplete="username">
+                <div class="error-message" id="username-error"></div>
+            </div>
+            
+            <div class="form-group password-field">
+                <label for="password">סיסמה</label>
+                <input type="password" id="password" name="password" placeholder="הזינו את הסיסמה שלכם" required autocomplete="current-password">
+                <button type="button" class="password-toggle" id="password-toggle" aria-label="Toggle password visibility">
+                    <i class="fas fa-eye"></i>
+                </button>
+                <div class="error-message" id="password-error"></div>
+            </div>
+            
+            <div class="form-options">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">זכור אותי</label>
+                </div>
+                <a href="#" class="forgot-password-small">שכחתי סיסמה?</a>
+            </div>
+            
+            <button type="submit" class="sign-in-btn" id="sign-in-btn">התחברות</button>
+        </form>
+
+        <div class="trust-indicator">
+            <i class="fas fa-lock"></i>
+            <span>החיבור מאובטח</span>
+        </div>
+        
+
+        
+        <div class="back-link">
+            <a href="iSpeak-website.html"><i class="fas fa-arrow-right"></i> חזרה לדף הבית</a>
+        </div>
+    </div>
+
+    <script>
+        // Password visibility toggle
+        const passwordToggle = document.getElementById('password-toggle');
+        const passwordInput = document.getElementById('password');
+        const passwordIcon = passwordToggle.querySelector('i');
+
+        passwordToggle.addEventListener('click', function() {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordIcon.classList.remove('fa-eye');
+                passwordIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                passwordIcon.classList.remove('fa-eye-slash');
+                passwordIcon.classList.add('fa-eye');
+            }
+        });
+
+        // Keyboard support for password toggle
+        passwordToggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                passwordToggle.click();
+            }
+        });
+
+        // Form validation and submission
+        const loginForm = document.getElementById('loginForm');
+        const signInBtn = document.getElementById('sign-in-btn');
+        const usernameError = document.getElementById('username-error');
+        const passwordError = document.getElementById('password-error');
+        const globalError = document.getElementById('global-error');
+        const globalErrorText = document.getElementById('global-error-text');
+        const usernameInput = document.getElementById('username');
+
+        function clearErrors() {
+            usernameError.textContent = '';
+            passwordError.textContent = '';
+            globalError.style.display = 'none';
+        }
+
+        function showFieldError(fieldId, message) {
+            const errorElement = document.getElementById(fieldId + '-error');
+            errorElement.innerHTML = `<i class="fas fa-exclamation-circle"></i>${message}`;
+        }
+
+        function showGlobalError(message) {
+            globalErrorText.textContent = message;
+            globalError.style.display = 'flex';
+        }
+
+        function updateButtonState() {
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
+            
+            if (username && password) {
+                signInBtn.disabled = false;
+            } else {
+                signInBtn.disabled = true;
+            }
+        }
+
+        // Real-time validation
+        usernameInput.addEventListener('input', updateButtonState);
+        passwordInput.addEventListener('input', updateButtonState);
+
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+            
+            // Clear previous errors
+            clearErrors();
+            
+            // Validation
+            let hasErrors = false;
+            
+            if (!username.trim()) {
+                showFieldError('username', 'שם משתמש הוא שדה חובה');
+                hasErrors = true;
+            }
+            
+            if (!password.trim()) {
+                showFieldError('password', 'סיסמה היא שדה חובה');
+                hasErrors = true;
+            } else if (password.length < 6) {
+                showFieldError('password', 'סיסמה חייבת להכיל לפחות 6 תווים');
+                hasErrors = true;
+            }
+            
+            if (hasErrors) {
+                return;
+            }
+            
+            // Disable button and show loading
+            signInBtn.disabled = true;
+            signInBtn.classList.add('loading');
+            signInBtn.textContent = 'מתחבר…';
+            
+            // Simulate server delay
+            setTimeout(() => {
+                // Mock authentication - check for valid test credentials
+                const validCredentials = [
+                    { username: 'student1', password: 'password123' },
+                    { username: 'student2', password: 'password123' },
+                    { username: 'student3', password: 'password123' },
+                    { username: 'student4', password: 'password123' },
+                    { username: 'student5', password: 'password123' },
+                    { username: 'student6', password: 'password123' },
+                    { username: 'student7', password: 'password123' },
+                    { username: 'student8', password: 'password123' },
+                    { username: 'student9', password: 'password123' },
+                    { username: 'student10', password: 'password123' },
+                    { username: 'student11', password: 'password123' },
+                    { username: 'student12', password: 'password123' },
+                    { username: 'student13', password: 'password123' },
+                    { username: 'student14', password: 'password123' },
+                    { username: 'student15', password: 'password123' },
+                    { username: 'student16', password: 'password123' },
+                    { username: 'student17', password: 'password123' },
+                    { username: 'student18', password: 'password123' },
+                    { username: 'student19', password: 'password123' },
+                    { username: 'student20', password: 'password123' }
+                ];
+                
+                const isValid = validCredentials.some(cred => 
+                    cred.username === username && cred.password === password
+                );
+                
+                if (isValid) {
+                    // Store mock student data
+                    const mockStudent = {
+                        id: username.replace('student', ''),
+                        username: username,
+                        fullName: `Student ${username.replace('student', '')}`,
+                        level: 'beginner'
+                    };
+                    
+                    localStorage.setItem('studentToken', 'mock-token-' + Date.now());
+                    localStorage.setItem('studentData', JSON.stringify(mockStudent));
+                    
+                    // Show success message briefly before redirect
+                    signInBtn.textContent = 'התחברות מוצלחת!';
+                    signInBtn.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+                    
+                    setTimeout(() => {
+                        // Redirect to comprehensive dashboard
+                        window.location.href = 'comprehensive-student-dashboard.html';
+                    }, 1000);
+                } else {
+                    showGlobalError('שם משתמש או סיסמה שגויים. אנא נסו שוב.');
+                    signInBtn.classList.remove('loading');
+                    signInBtn.textContent = 'התחברות';
+                    updateButtonState();
+                }
+            }, 1500); // 1.5 second delay to simulate server response
+        });
+
+        // Add focus effects for better UX
+        const inputs = document.querySelectorAll('.form-group input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && document.activeElement.tagName !== 'BUTTON') {
+                loginForm.dispatchEvent(new Event('submit'));
+            }
+        });
+
+        // Checkbox keyboard support
+        const rememberCheckbox = document.getElementById('remember');
+        const rememberLabel = document.querySelector('.remember-me label');
+        
+        rememberLabel.addEventListener('keydown', function(e) {
+            if (e.key === ' ') {
+                e.preventDefault();
+                rememberCheckbox.checked = !rememberCheckbox.checked;
+            }
+        });
+
+        // Initialize button state
+        updateButtonState();
+
+        // Add page load animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Page is already loaded, animations will start automatically
+            // due to the CSS animations we added
+        });
+    </script>
+</body>
+</html>

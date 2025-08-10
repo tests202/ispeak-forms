@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>iSpeak - לימוד אנגלית</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-content">
+                        <div class="logo-text">
+                            <h3 class="ispeak-logo">
+                                <span class="logo-letter" style="color: #FF9900;">i</span>
+                                <span class="logo-letter" style="color: #FF9900;">S</span>
+                                <span class="logo-letter" style="color: #FF9900;">p</span>
+                                <span class="logo-letter" style="color: #FF9900;">e</span>
+                                <span class="logo-letter" style="color: #FF9900;">a</span>
+                                <span class="logo-letter" style="color: #FF9900;">k</span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <nav class="navigation">
+                    <ul class="nav-menu">
+
+                        <li class="nav-item">
+                            <a href="#courses">קורסים</a>
+                            <div class="dropdown-menu">
+                                <a href="#spoken-online">קורס אנגלית מדוברת אונליין</a>
+                                <a href="#grammar-practice">קורס תרגול דקדוק באנגלית</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#levels">רמות</a>
+                            <div class="dropdown-menu">
+                                <a href="#beginner">רמת מתחילים</a>
+                                <a href="#intermediate">רמת ביניים</a>
+                                <a href="#advanced">רמת מתקדמים</a>
+                                <a href="#business">אנגלית עסקית</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#children">אנגלית לילדים</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#business">אנגלית עסקית</a>
+                            <div class="dropdown-menu">
+                                <a href="#corporate">הכשרות חברות</a>
+                                <a href="#meetings">אנגלית לפגישות</a>
+                                <a href="#presentations">הצגות</a>
+                                <a href="#negotiations">משא ומתן</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#level-test">מבחן רמה</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#blog">בלוג</a>
+                            <div class="dropdown-menu">
+                                <a href="#tips">טיפים ללמידה</a>
+                                <a href="#grammar">שיעורי דקדוק</a>
+                                <a href="#vocabulary">אוצר מילים</a>
+                                <a href="#culture">תרבות אנגלית</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="header-action">
+                        <a href="auth.html" style="text-decoration: none; color: inherit;">
+                            <i class="fas fa-user"></i>
+                            <span>התחברות</span>
+                        </a>
+                    </div>
+                    <div class="header-cta">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-phone"></i>
+                            <span>5878</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <h3>iSpeak</h3>
+                <button class="mobile-menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="#courses">קורסים</a></li>
+                    <li><a href="#levels">רמות</a></li>
+                    <li><a href="#children">אנגלית לילדים</a></li>
+                    <li><a href="#business">אנגלית עסקית</a></li>
+                    <li><a href="#level-test">מבחן רמה</a></li>
+                    <li><a href="#blog">בלוג</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-actions">
+                <a href="auth.html" class="btn btn-primary">
+                    <i class="fas fa-user"></i>
+                    התחברות
+                </a>
+                <button class="btn btn-secondary">
+                    <i class="fas fa-phone"></i>
+                    5878
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="company-name">iSpeak</div>
+                    <h1>לומדים אנגלית כמו שלומדים שפת אם</h1>
+                    <p>הצטרפו לאלפי תלמידים שמפתחים את כישורי השפה שלהם עם iSpeak.</p>
+                    <p>פלטפורמה חינוכית מודרנית המשלבת טכנולוגיה מתקדמת ושיטות הוראה מוכחות.</p>
+                </div>
+                <div class="hero-form">
+                    <form id="heroContactForm">
+                        <div class="form-group">
+                            <input type="text" id="heroName" name="name" placeholder="* שם מלא" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="heroPhone" name="phone" placeholder="* מספר טלפון" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="heroEmail" name="email" placeholder="דוא״ל" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">שליחה</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Tools Section -->
+    <section class="tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>הכלים שלך להצלחה באנגלית</h2>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>אבחון דידקטי</h3>
+                    <p>מזהים קשיים, ועובדים עליהם באופן עקבי וממוקד</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>שיבוץ שיעורים לפי הלו״ז שלך</h3>
+                    <p>מתאימים את הלמידה ללוח הזמנים שלך</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>התמקדות במקצועות ותחומי עיסוק</h3>
+                    <p>פיתוח מיומנויות שפה למצבים מגוונים בחיים ובעבודה</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>שיעורים בשיטת אחד-על-אחד</h3>
+                    <p>בהנחיית מורים דוברי אנגלית כשפת אם</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>למה iSpeak?</h2>
+                    <p>אנו מאמינים בגישה חדשנית וחווייתית, שמחליפה את שיטת הלימוד המסורתית.</p>
+                    <p>באמצעות למידה אפקטיבית וממוקדת תוצאות, אנו מאפשרים לכל תלמיד ותלמידה להתקדם בצורה קלה, טבעית, ובקצב המתאים.</p>
+                    <p>האמונה שלנו מבוססת על כמה עקרונות מרכזיים: שיטת ההטמעה באנגלית, תשומת לב ויחס אישי, שימוש בדרכים חדשניות, סביבת לימוד המדמה חיים במדינה דוברת אנגלית, התאמה אישית לכל מטרה לכל צורך.</p>
+                    <button class="btn btn-courses">קורסים</button>
+                </div>
+                <div class="about-image">
+                    <img src="e-learning.jpeg" alt="E-Learning Illustration">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why iSpeak Section 2 -->
+    <section id="why-ispeak-2" class="why-ispeak-2">
+        <div class="container">
+            <div class="why-ispeak-2-content">
+                <div class="why-ispeak-2-text">
+                    <h2>ללמוד אנגלית כמו שלומדים שפת אם</h2>
+                    <p>ב־iSpeak אנחנו מלמדים אנגלית בשיטה חדשנית שנקראת Hybrid Learning – למידה היברידית, שיטה שהובילה מאות תלמידים להצלחה אמיתית.</p>
+                    <p>השיטה משלבת שני מפגשים אישיים בשיטת אחד-על-אחד בכל שבוע, יחד עם משימות יומיומיות חכמות שמשתלבות בשגרה – כך שהאנגלית הופכת לחלק טבעי מהיום־יום שלכם.</p>
+                    <p>אנחנו שמים דגש על הטמעת השפה בחיי היומיום, כדי שכל תלמיד ותלמידה יתחילו להרגיש, לחשוב ולדבר באנגלית – לא רק בשיעור, אלא גם מחוצה לו.</p>
+                    <p>באמצעות תרגולים יצירתיים, חשיפה טבעית לשפה, וטכניקות שמפתחות ביטחון עצמי גבוה, התלמידים שלנו משפרים לא רק את הדיבור – אלא את כל כישורי האנגלית: הבנת הנשמע, קריאה, כתיבה – ובעיקר, לחשוב באנגלית באמת.</p>
+                    <button class="btn btn-courses">להרשמה</button>
+                </div>
+                <div class="why-ispeak-2-image">
+                    <img src="man-working-laptop.jpg" alt="Man working on laptop in modern office">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="courses-header">
+                <div class="accent-line"></div>
+                <h2>הקורסים שלנו</h2>
+                <p>בחרו את הקורס המתאים לכם ביותר</p>
+            </div>
+
+            <!-- Course Cards Grid -->
+            <div class="courses-grid">
+                <!-- Course Card 1 -->
+                <div class="course-card">
+                    <div class="course-icon-container">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>אנגלית לילדים</h3>
+                        <p>למידה חווייתית ומהנה לילדים</p>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div class="course-card">
+                    <div class="course-icon-container">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>מורים פרטיים לאנגלית</h3>
+                        <p>תשומת לב מלאה עם מורה פרטי מנוסה</p>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="course-card">
+                    <div class="course-icon-container">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>קורס אנגלית אונליין</h3>
+                        <p>למדו אנגלית מהבית עם מורים מקצועיים</p>
+                    </div>
+                </div>
+
+                <!-- Course Card 4 -->
+                <div class="course-card">
+                    <div class="course-icon-container">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>אנגלית עסקית</h3>
+                        <p>לימוד אנגלית בהתאם לתחום העיסוק שלך</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonials Section -->
+    <section id="reviews" class="video-testimonials">
+        <div class="container">
+            <div class="video-testimonials-content">
+                <!-- Left Side: Video with Navigation -->
+                <div class="video-section">
+                    <!-- Navigation Arrows -->
+                    <button class="testimonial-nav prev-testimonial" id="prevTestimonial" aria-label="הקודם">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    
+                    <!-- MacBook Pro 14 Display -->
+                    <div class="macbook-container">
+                        <div class="macbook-frame">
+                            <div class="macbook-screen">
+                                <div class="review-content active" data-review="1">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="reviewer-details">
+                                                <div class="reviewer-name">אתי</div>
+                                                <div class="reviewer-title">מאבחנת דידקטית</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-text">
+                                        <p>"זה עתה סיימתי שיעור בזום עם המורה אדם. עולם חדש נפתח לי נהניתי. למדתי. דיברתי. מאוד מעריכה אותו."</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-content" data-review="2">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="reviewer-details">
+                                                <div class="reviewer-name">שיר</div>
+                                                <div class="reviewer-title">מורה בבית ספר יסודי</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-text">
+                                        <p>"תודה רבה רבה לך על הסבלנות, ובעיקר על שיטת הלימוד, ושימת הלב לך לירידה לפרטים הקטנים."</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-content" data-review="3">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="reviewer-details">
+                                                <div class="reviewer-name">דקלה</div>
+                                                <div class="reviewer-title">מהנדסת תוכנה</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-text">
+                                        <p>"שלום אדם, חייבת להגיד שהיה לי שיעור מצויין אתמול. לא ציפיתי שאני אוהב ללמוד אונליין אבל להפתעתי ממש נהניתי. תודה."</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-content" data-review="4">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="reviewer-details">
+                                                <div class="reviewer-name">אתי</div>
+                                                <div class="reviewer-title">מאבחנת דידקטית</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-text">
+                                        <p>"זה עתה סיימתי שיעור בזום עם המורה אדם. עולם חדש נפתח לי נהניתי. למדתי. דיברתי. מאוד מעריכה אותו."</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-content" data-review="5">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="reviewer-details">
+                                                <div class="reviewer-name">שיר</div>
+                                                <div class="reviewer-title">מורה בבית ספר יסודי</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-text">
+                                        <p>"תודה רבה רבה לך על הסבלנות, ובעיקר על שיטת הלימוד, ושימת הלב לך לירידה לפרטים הקטנים."</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-content" data-review="6">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="reviewer-details">
+                                                <div class="reviewer-name">דקלה</div>
+                                                <div class="reviewer-title">מהנדסת תוכנה</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-text">
+                                        <p>"שלום אדם, חייבת להגיד שהיה לי שיעור מצויין אתמול. לא ציפיתי שאני אוהב ללמוד אונליין אבל להפתעתי ממש נהניתי. תודה."</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-content" data-review="7">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <div class="reviewer-avatar">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <div class="reviewer-details">
+                                                <div class="reviewer-name">ורד</div>
+                                                <div class="reviewer-title">עורכת דין</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-text">
+                                        <p>"אני רוצה להודות לך כי ללמוד איתך זו חוויה אחת גדולה. אתה מורה מאוד סבלנית מורה שרואה את כל התלמידים שלך בגובה עיניים. בזכותך למדתי והתקדמתי ואתה יודע שהגעתי אליך נטולת אנגלית לגמרי. מורה כמוך הוא מודל ודוגמא לכל מורה ואדם. כן ירבו אנשים איכותיים כמוך. אכפתי מאוד והחשוב מכל מקצועי ונערץ על ידי התלמידים שלו."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="testimonial-nav next-testimonial" id="nextTestimonial" aria-label="הבא">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                
+                <!-- Right Side: Text Content -->
+                <div class="testimonials-text">
+                    <div class="accent-line"></div>
+                    <h2>מה יש לתלמידים שלנו לומר עלינו?</h2>
+                    <p>שמעו ישירות מהתלמידים שלנו על החוויה שלהם עם iSpeak</p>
+                    
+                    <!-- Navigation Dots -->
+                    <div class="testimonial-dots">
+                        <span class="dot active" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                        <span class="dot" data-slide="3"></span>
+                        <span class="dot" data-slide="4"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact-us">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-form-section">
+                    <form id="contactUsForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="contactName" name="name" placeholder="שם מלא *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="contactPhone" name="phone" placeholder="מספר טלפון *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contactEmail" name="email" placeholder="דוא״ל">
+                        </div>
+                        <button type="submit" class="btn btn-red btn-full">שליחה</button>
+                    </form>
+                </div>
+                <div class="contact-text-section">
+                    <div class="accent-line"></div>
+                    <h2>רוצה לדבר אנגלית בקלות?<br>נשאר לך רק למלא פרטים!</h2>
+                    <p>קבלו שיחת ייעוץ חינם ובה נתאים עבורכם קורס מדויק שיוביל אתכם להצלחה!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-content">
+                            <div class="logo-text">
+                                                        <h3 class="ispeak-logo">
+                            <span class="logo-letter" style="color: #FF9900;">i</span>
+                            <span class="logo-letter" style="color: #FF9900;">S</span>
+                            <span class="logo-letter" style="color: #FF9900;">p</span>
+                            <span class="logo-letter" style="color: #FF9900;">e</span>
+                            <span class="logo-letter" style="color: #FF9900;">a</span>
+                            <span class="logo-letter" style="color: #FF9900;">k</span>
+                        </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <p>פלטפורמה חינוכית מובילה בהוראת השפה האנגלית, המציעה חוויה חינוכית ייחודית וחדשנית.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>קישורים מהירים</h4>
+                    <ul>
+                        <li><a href="#home">בית</a></li>
+                        <li><a href="#about">אודות</a></li>
+                        <li><a href="#courses">קורסים</a></li>
+                        <li><a href="#features">תכונות</a></li>
+                        <li><a href="#contact">צור קשר</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>קורסים</h4>
+                    <ul>
+                        <li><a href="#">קורס מתחילים</a></li>
+                        <li><a href="#">קורס רמת ביניים</a></li>
+                        <li><a href="#">קורס רמת מתקדמים</a></li>
+                        <li><a href="#">קורסים מיוחדים</a></li>
+                        <li><a href="#">קורסים לחברות</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>תמיכה</h4>
+                    <ul>
+                        <li><a href="#">שאלות נפוצות</a></li>
+                        <li><a href="#">תמיכה טכנית</a></li>
+                        <li><a href="#">מדיניות פרטיות</a></li>
+                        <li><a href="#">תנאי שימוש</a></li>
+                        <li><a href="#">מדיניות החזרות</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 iSpeak. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <h3>תפריט</h3>
+                <button class="mobile-menu-close" id="closeMobileMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="#home">בית</a></li>
+                    <li><a href="#about">אודות</a></li>
+                    <li><a href="#courses">קורסים</a></li>
+                    <li><a href="#features">תכונות</a></li>
+                    <li><a href="#contact">צור קשר</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
